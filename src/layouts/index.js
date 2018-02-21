@@ -27,7 +27,7 @@ const Header = () => (
             textDecoration: 'none',
           }}
         >
-          Gatsby GraphCMS Example
+          Gatsby Done Right
         </Link>
       </h1>
     </div>

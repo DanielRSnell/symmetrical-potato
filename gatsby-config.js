@@ -7,68 +7,15 @@ module.exports = {
     {
       resolve: `gatsby-source-graphcms`,
       options: {
-        endpoint: `https://api.graphcms.com/simple/v1/vinylbase`,
+        endpoint: `https://api.graph.cool/simple/v1/cjazynkxt0xkj01926xxwnp9m`,
         query: `{
-          allArtists {
-            id
-            slug
-            name
-            picture {
-              id
-              handle
-              width
-              height
-            }
-            records {
-              id
-              slug
-              title
-            }
-          }
-          allRecords(orderBy: createdAt_DESC) {
-            id
-            slug
-            title
-            artist {
-              id
-              slug
-              name
-            }
-            createdAt
-            tracks {
-              id
-              title
-              aliasedLength: length
-            }
-            cover {
-              handle
-            }
-            reviews {
-              id
-              slug
-              title
-            }
-          }
-          allReviews(orderBy: createdAt_DESC) {
-            id
-            slug
-            createdAt
-            record {
-              slug
-              title
-              artist {
-                slug
-                name
-              }
-            }
-            title
-            review
-            rating
-            comments {
-              body
-            }
-          }
-        }`,
+      	allIcoProfiles {
+          id
+          name
+          logo
+          desc
+        }
+      }`,
       },
     },
     {
@@ -94,6 +41,7 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-offline`
+    `gatsby-plugin-offline`,
+    'gatsby-plugin-antd'
   ],
 }
