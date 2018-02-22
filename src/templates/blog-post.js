@@ -6,6 +6,15 @@ import { Row, Divider, Col, Layout, Tag } from 'antd';
 
 class BlogPostTemplate extends React.Component {
 
+  CreateRaw(props) {
+    if (props.about !== null ) {
+      return props.about.split("<br />").join("<br /><br />")
+    } else {
+      const raw = "<h3>There is no content about this ICO</h3>";
+      return raw;
+    }
+  }
+
   render() {
 
     console.log(this.props.data);
@@ -29,10 +38,26 @@ class BlogPostTemplate extends React.Component {
               </Row>
             </Col>
           </Row>
+          <Row className="profile-tags">
+            {data.categories.map(item => {
+              const CreateTag = (
+                <Tag key={item.id} className="ico-tags">
+                  {item.name}
+                </Tag>
+              );
+              return CreateTag;
+            })}
+          </Row>
+          <Divider />
           <Row>
-            <Col>
-              <div dangerouslySetInnerHTML={{__html: data.about.split("<br />").join("<br /><br />") }} />
-            </Col>
+            <Row>
+              <h2>
+                <strong>About: </strong> {data.name}
+              </h2>
+            </Row>
+            <Row>
+              <div dangerouslySetInnerHTML={{__html: this.CreateRaw(data) }} />
+            </Row>
           </Row>
         </div>
     )
