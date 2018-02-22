@@ -14,7 +14,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             edges {
               node {
                 name
+                logo
                 desc
+                about
+                tagline
               }
             }
           }

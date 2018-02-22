@@ -14,6 +14,12 @@ module.exports = {
           name
           logo
           desc
+          about
+          tagline
+          icoCategories {
+            id
+            name
+          }
         }
       }`,
       },
