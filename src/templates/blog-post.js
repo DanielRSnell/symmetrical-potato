@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
             <Col className="profile-logo" span={3}>
               <img src={`${data.logo}`} alt={`${data.name.replace(/ /g, '-')}`} />
             </Col>
-            <Col className="profile-header" span={20} style={{padding: 5}}>
+            <Col className="profile-header" span={20} push={1} style={{padding: 5}}>
               <Row>
               <h1>
                 {data.name}
@@ -38,10 +38,10 @@ class BlogPostTemplate extends React.Component {
               </Row>
             </Col>
           </Row>
-          <Row className="profile-tags" style={{padding: 10}}>
+          <Row className="profile-tags" style={{margin: 5}}>
             {data.categories.map(item => {
               const CreateTag = (
-                <Tag key={item.id} className="ico-tags">
+                <Tag key={item.id} className="ico-tags" style={{margin: 5}}>
                   {item.name}
                 </Tag>
               );
