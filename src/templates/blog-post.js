@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import { Row, Divider, Col, Layout, Tag } from 'antd';
+import './post.css';
 
 class BlogPostTemplate extends React.Component {
 
@@ -25,7 +26,7 @@ class BlogPostTemplate extends React.Component {
       <div>
           <Row span={24}>
             <Col className="profile-logo" span={3}>
-              <img src={`${data.logo}`} alt={`${data.name.replace(/ /g, '-')}`} />
+              <img className="profile-image" src={`${data.logo}`} alt={`${data.name.replace(/ /g, '-')}`} />
             </Col>
             <Col className="profile-header" span={20} push={1} style={{padding: 5}}>
               <Row>
@@ -33,7 +34,7 @@ class BlogPostTemplate extends React.Component {
                 {data.name}
               </h1>
               </Row>
-              <Row>
+              <Row className="header-tagline">
                 <h4>{data.tagline}</h4>
               </Row>
             </Col>
