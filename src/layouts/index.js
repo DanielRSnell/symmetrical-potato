@@ -37,10 +37,10 @@ const Header = () => (
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby GraphCMS Example"
+      title="Home of all your ICO needs"
       meta={[
-        { name: 'description', content: 'Gatsby GraphCMS Example' },
-        { name: 'keywords', content: 'gatsby, graphcms, example' },
+        { name: 'description', content: 'Learn about top performing ICOs today!' },
+        { name: 'keywords', content: 'Intial Coin Offerings' },
       ]}
     />
     <Header />

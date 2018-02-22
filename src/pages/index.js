@@ -7,6 +7,14 @@ import { Row, List, Avatar } from 'antd'
 
 class IndexPage extends Component {
 
+  CreateLink(name) {
+
+    const Link = name.toLowerCase().replace(/ /g, "-").replace(/\./g, "-");
+
+    return Link;
+
+  }
+
   render() {
 
       const data = this.props.data.ico.edges;
@@ -21,8 +29,9 @@ class IndexPage extends Component {
         renderItem={item => (
           <List.Item>
             <List.Item.Meta
-              avatar={<Avatar src={`${item.node.logo}`} />}
-              title={<a href="https://ant.design">{item.node.name}</a>}
+              avatar={<Avatar
+                size="large" src={`${item.node.logo}`} />}
+              title={<Link to={`/${this.CreateLink(item.node.name)}`}> {item.node.name}</Link>}
               description={<p>{item.node.desc}</p>}
             />
 
