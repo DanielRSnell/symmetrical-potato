@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
             <Col className="profile-logo" span={3}>
               <img src={`${data.logo}`} alt={`${data.name.replace(/ /g, '-')}`} />
             </Col>
-            <Col className="profile-header" span={12} style={{padding: 5}}>
+            <Col className="profile-header" span={20} style={{padding: 5}}>
               <Row>
               <h1>
                 {data.name}
