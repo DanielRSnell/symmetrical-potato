@@ -16,23 +16,7 @@ module.exports = {
           desc
           about
           tagline
-          intro
-          rating
-          ratingTeam
-          ratingVision
-          ratingProfile
-          ratingProduct
-          country
-          url
-          raised
-          prestart
-          preend
-          start
-          end
-          icoid
-          categories: icoCategories {
-            name
-            icoid
+          icoCategories {
             id
             name
           }
@@ -64,6 +48,5 @@ module.exports = {
       }
     },
     `gatsby-plugin-offline`,
-    'gatsby-plugin-antd'
   ],
 }

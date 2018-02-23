@@ -21,7 +21,6 @@
     "gatsby": "1.9.175",
     "gatsby-cli": "^1.1.42",
     "gatsby-link": "1.6.35",
-    "gatsby-plugin-antd": "^1.0.10",
     "gatsby-plugin-manifest": "1.0.13",
     "gatsby-plugin-offline": "1.0.13",
     "gatsby-plugin-react-helmet": "2.0.4",

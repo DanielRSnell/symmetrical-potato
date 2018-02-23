@@ -3,7 +3,6 @@ import Markdown from 'react-markdown'
 import StarRatingComponent from 'react-star-rating-component'
 import Link from 'gatsby-link'
 import { Button, Image, Item, Label } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css';
 import './index.css'
 
 class IndexPage extends Component {
@@ -35,6 +34,7 @@ class IndexPage extends Component {
 
     return (
       <Item.Group divided>
+
         {data.map(item => (
 
           <Item>
@@ -73,8 +73,7 @@ export const pageQuery = graphql`
           tagline
           logo
           desc
-          intro
-          categories {
+          categories: icoCategories {
             id
             name
         }
