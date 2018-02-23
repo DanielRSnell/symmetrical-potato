@@ -16,7 +16,23 @@ module.exports = {
           desc
           about
           tagline
-          icoCategories {
+          intro
+          rating
+          ratingTeam
+          ratingVision
+          ratingProfile
+          ratingProduct
+          country
+          url
+          raised
+          prestart
+          preend
+          start
+          end
+          icoid
+          categories: icoCategories {
+            name
+            icoid
             id
             name
           }

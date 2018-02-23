@@ -3,13 +3,14 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import { Row, Divider, Col, Layout, Tag } from 'antd';
+import { List } from 'semantic-ui-react';
 import './post.css';
 
 class BlogPostTemplate extends React.Component {
 
   CreateRaw(props) {
     if (props.about !== null ) {
-      return props.about.split("<br />").join("<br /><br />")
+      return props.about.split("<br />").join("<p></p>")
     } else {
       const raw = "<h3>There is no content about this ICO</h3>";
       return raw;
@@ -24,42 +25,37 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div>
-          <Row span={24}>
-            <Col className="profile-logo" span={3}>
-              <img className="profile-image" src={`${data.logo}`} alt={`${data.name.replace(/ /g, '-')}`} />
-            </Col>
-            <Col className="profile-header" span={20} push={1} style={{padding: 5}}>
-              <Row>
-              <h1>
-                {data.name}
-              </h1>
-              </Row>
-              <Row className="header-tagline">
-                <h4>{data.tagline}</h4>
-              </Row>
-            </Col>
-          </Row>
-          <Row className="profile-tags" style={{margin: 5}}>
+          <div className="header-image">
+              <img className="header-logo" src={`${data.logo}`} alt={`${data.name.replace(/ /g, '-')}`} />
+              </div>
+            <div className="header-text">
+              <div>
+                <span className="header-profile">{data.name}</span>
+                </div>
+              <div>
+                <span className="header-tagline">{data.tagline}</span>
+              </div>
+          </div>
+          <div className="profile-tags" style={{margin: 5}} type="flex" justify="center">
             {data.categories.map(item => {
               const CreateTag = (
-                <Tag key={item.id} className="ico-tags" style={{margin: 5}}>
+                <div key={item.id} className="ico-tags" style={{margin: 5}}>
                   {item.name}
-                </Tag>
+                </div>
               );
               return CreateTag;
             })}
-          </Row>
-          <Divider />
-          <Row>
-            <Row>
+          </div>
+          <div>
+            <div>
               <h2>
                 <strong>About: </strong> {data.name}
               </h2>
-            </Row>
-            <Row>
+            </div>
+            <div>
               <div dangerouslySetInnerHTML={{__html: this.CreateRaw(data) }} />
-            </Row>
-          </Row>
+            </div>
+          </div>
         </div>
     )
   }
@@ -75,7 +71,7 @@ query FetchByName($page_name: String!) {
     desc
     about
     tagline
-    categories: icoCategories {
+    categories {
       id
       name
     }
