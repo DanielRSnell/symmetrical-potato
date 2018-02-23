@@ -8,7 +8,7 @@ import './index.css'
 const Header = () => (
   <div
     style={{
-      background: 'rebeccapurple',
+      background: '#663399',
       marginBottom: '1.45rem',
     }}
   >

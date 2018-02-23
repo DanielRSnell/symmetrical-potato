@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Markdown from 'react-markdown'
 import StarRatingComponent from 'react-star-rating-component'
 import Link from 'gatsby-link'
-import { Item, Label, Image, Button } from 'semantic-ui-react';
+import { Col, Row, Tag, Button, Divider } from 'antd';
 import './index.css'
 
 class IndexPage extends Component {
@@ -16,9 +16,10 @@ class IndexPage extends Component {
   }
 
   CreateTags(props) {
-    if ( props.categories !== null ) {
+
+    if ( props.categories !== null || undefined ) {
       return props.categories.map( item => (
-        <Label key={`${item.id}`} content={`${item.name}`}></Label>
+        <Tag key={`${item.id}`} color="#663399">{item.name}</Tag>
       ))
     }
   }
@@ -27,34 +28,38 @@ class IndexPage extends Component {
 
       const data = this.props.data.ico.edges;
       console.log(data);
+      console.log(this.props);
 
     return (
       <div>
-        <Item.Group divided>
         {data.map( item => (
-          <Item>
-            <Item.Image className="ico-logo" src={`${item.node.logo}`} />
-            <Item.Content>
-              <Item.Header as='a'>
-                <span className="ico-header">
-                  {item.node.name}
-                </span>
-              </Item.Header>
-              <Item.Meta>
-                <span className="ico-tagline">
-                  {item.node.tagline}
-                </span>
-              </Item.Meta>
-              <Item.Description>
+          <Row className="item-row" span={24}>
+            <Col className="item-asset" span={4}>
+              <img className="item-image" src={`${item.node.logo}`} />
+            </Col>
+            <Col className="item-meta" span={16}>
+              <Row className="item-header">
+                <h1>{item.node.name}</h1>
+              </Row>
+              <Row className="item-tagline">
+                {item.node.tagline}
+              </Row>
+              <Row className="item-desc">
                 {item.node.desc}
-              </Item.Description>
-              <Item.Extra>
-                {this.CreateTags(item.node)}
-              </Item.Extra>
-            </Item.Content>
-          </Item>
+              </Row>
+              <Row className="item-extras">
+                <Col className="item-tags">
+                  {this.CreateTags(item.node)}
+                </Col>
+                <Col className="item-action">
+                  <Link to={`${this.CreateLink(item.node.name)}`}>
+                  <Button size="large">Research</Button>
+                  </Link>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
         ))}
-        </Item.Group>
       </div>
     )
   }
