@@ -115,7 +115,7 @@ class Mobile extends Component {
     return (
       <div>
         {data.map( item => (
-          <Link to={this.CreateLink(item.node)}>
+          <Link to={this.CreateLink(item.node)} key={item.node.id}>
         <Row className="item-row" key={item.node.id}>
           <Row className="mobile-item-row" span={24}>
             <Col className="mobile-item-col" span={16}>
