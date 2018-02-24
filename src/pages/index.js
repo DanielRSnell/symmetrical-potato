@@ -6,9 +6,11 @@ import Mobile from '../components/index/mobile.js';
 import './index.css';
 
 class IndexPage extends Component {
-	render() {
-		const data = this.props.data.ico.edges;
+	state = {
+		width: 1000
+	};
 
+	CheckBrowser(data) {
 		if (typeof window !== 'undefined') {
 			if (window.innerWidth > 609) {
 				return (
@@ -30,6 +32,12 @@ class IndexPage extends Component {
 				</div>
 			);
 		}
+	}
+
+	render() {
+		const data = this.props.data.ico.edges;
+
+		return <div className="container">{this.CheckBrowser(data)}</div>;
 	}
 }
 
