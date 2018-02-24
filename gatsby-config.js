@@ -16,6 +16,11 @@ module.exports = {
           desc
           about
           tagline
+          rating
+          start
+          end
+          prestart
+          preend
           icoCategories {
             id
             name

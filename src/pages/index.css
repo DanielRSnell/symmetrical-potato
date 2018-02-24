@@ -1,5 +1,6 @@
 .item-row {
   margin-bottom: 2em;
+  color: #222;
   padding: .5em;
   border: 1px solid #dbdbdb;
   -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.2);
@@ -9,6 +10,10 @@
 
 .item-meta {
   margin-left: 4em;
+}
+
+.mobile-item {
+  margin-bottom: 1em;
 }
 
 .item-image {
@@ -35,7 +40,7 @@
 }
 
 .item-tagline {
-    font-size: 2em;
+    font-size: 1.5em;
     line-height: 1;
     color: #222;
     font-family: 'Montserrat',sans-serif;
@@ -54,7 +59,36 @@
 }
 
 .item-action {
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  float: right;
+}
+
+.mobile-item-row {
+  margin-bottom: 1em;
+}
+
+.mobile-class-item {
+  margin-left: 1.5em;
+}
+
+.mobile-header {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.mobile-rating-item {
+  float: right;
+  margin-right: 1.0em;
+  padding-top: .25em;
+}
+
+.mobile-start-date {
+  float: center;
+  margin-left: 1em;
+}
+
+.mobile-end-date {
+  margin-right: 1.5em;
   float: right;
 }
