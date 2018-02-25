@@ -163,25 +163,6 @@ export const pageQuery = graphql`
 				video
 				bounty
 			}
-			team_members: icoTeams {
-				group
-				iss
-				links
-				name
-				photo
-				title
-			}
-			ratings: icoRatings {
-				agree
-				name
-				photo
-				review
-				product
-				profile
-				team
-				vision
-				weight
-			}
 		}
 	}
 `;
