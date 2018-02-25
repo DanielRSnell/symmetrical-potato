@@ -2,17 +2,15 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import get from 'lodash/get';
-import { Avatar, Row, Col, Tag, Tabs, Divider } from 'antd';
+import { Avatar, Row, Col, Tag, Divider } from 'antd';
 import './post.css';
-
-const TabPane = Tabs.TabPane;
 
 class BlogPostTemplate extends React.Component {
 	CreateRaw(props) {
 		if (props.about !== null) {
 			return { __html: props.about.split('<br />').join('<p></p>') };
 		} else {
-			const raw = '<h3>There is no content about this ICO</h3>';
+			const raw = { __html: '<h3>There is no content about this ICO</h3>' };
 			return raw;
 		}
 	}
@@ -37,72 +35,69 @@ class BlogPostTemplate extends React.Component {
 		const data = this.props.data.ico;
 
 		return (
-			<div>
-				<Row className="profile-container">
-					<Row className="section-top">
-						<Row className="profile-row" span={24}>
-							<Col className="profile-col" span={24}>
-								<center>
-									<img src={data.logo} className="header-logo" />
-								</center>
-							</Col>
-						</Row>
-						<Row className="profile-row" span={24}>
-							<Col className="profile-col" span={24}>
-								<center>
-									<span className="header-title">{data.name}</span>
-								</center>
-							</Col>
-						</Row>
-						<Row className="profile-row" span={24}>
-							<Col className="profile-col" span={24}>
-								<center>
-									<span className="header-secondary">{data.tagline}</span>
-								</center>
-							</Col>
-						</Row>
+			<Row className="profile-container">
+				<Row className="section-top">
+					<Row className="profile-row" span={24}>
+						<Col className="profile-col" span={24}>
+							<center>
+								<img src={data.logo} className="header-logo" />
+							</center>
+						</Col>
 					</Row>
-					<Row className="section-mid">
-						<Row className="profile-row" span={24}>
-							<center>{this.CreateTags(data)}</center>
-						</Row>
-						<Row className="profile-content" span={24}>
-							<Tabs defaultActiveKey="1" onChange={this.callback}>
-								<TabPane tab="About" key="1">
-									<div className="about-header-section">
-										<h1>
-											<strong>About: </strong>
-											{data.name}
-										</h1>
-									</div>
-									<div dangerouslySetInnerHTML={this.CreateRaw(data)} />
-								</TabPane>
-								<TabPane tab="Status" key="2">
-									Something Goes Here
-								</TabPane>
-								<TabPane tab="Milestones" key="3">
-									Something Goes Here
-								</TabPane>
-								<TabPane tab="Team" key="4">
-									Something Goes Here
-								</TabPane>
-								<TabPane tab="Reviews" key="5">
-									Something Goes Here
-								</TabPane>
-								<TabPane tab="Financials" key="6">
-									Something Goes Here
-								</TabPane>
-								<TabPane tab="Links" key="7">
-									Something Goes Here
-								</TabPane>
-								<TabPane tab="Video" key="8">
-									Something Goes Here
-								</TabPane>
-							</Tabs>
-						</Row>
+					<Row className="profile-row" span={24}>
+						<Col className="profile-col" span={24}>
+							<center>
+								<span className="header-title">{data.name}</span>
+							</center>
+						</Col>
+					</Row>
+					<Row className="profile-row" span={24}>
+						<Col className="profile-col" span={24}>
+							<center>
+								<span className="header-secondary">{data.tagline}</span>
+							</center>
+						</Col>
 					</Row>
 				</Row>
-			</div>
+				<Row className="section-mid" span={24}>
+					<Row className="profile-row" span={24}>
+						<center>{this.CreateTags(data)}</center>
+					</Row>
+					<Row type="flex" justify="center" className="profile-row" span={24}>
+						<Col span={12}>
+							<div
+								className="profile-content-row"
+								dangerouslySetInnerHTML={this.CreateRaw(data)}
+							/>
+						</Col>
+						<Col className="profile-content" span={10} push={2}>
+							<Row span={24}>
+								<Col className="profile-sidebar-box" span={24}>
+									<span className="rating-header">{data.rating}</span>
+								</Col>
+							</Row>
+							<Row span={24}>
+								<Col className="profile-sidebar-box" span={6}>
+									<span className="rating-sub">{data.ratingTeam}</span>
+									<span className="rating-title">Team</span>
+								</Col>
+								<Col className="profile-sidebar-box" span={6}>
+									<span className="rating-sub">{data.ratingVision}</span>
+									<span className="rating-title">Vision</span>
+								</Col>
+								<Col className="profile-sidebar-box" span={6}>
+									<span className="rating-sub">{data.ratingProfile}</span>
+									<span className="rating-title">Profile</span>
+								</Col>
+								<Col className="profile-sidebar-box" span={6}>
+									<span className="rating-sub">{data.ratingProduct}</span>
+									<span className="rating-title">Product</span>
+								</Col>
+							</Row>
+						</Col>
+					</Row>
+				</Row>
+			</Row>
 		);
 	}
 }
@@ -117,9 +112,75 @@ export const pageQuery = graphql`
 			desc
 			about
 			tagline
+			rating
+			ratingTeam
+			ratingVision
+			ratingProfile
+			ratingProduct
 			categories: icoCategories {
 				id
 				name
+			}
+			mile: milestones {
+				id
+				title
+				content
+			}
+			exchanges: icoExchanges {
+				id
+				logo
+				price
+				roi
+				name
+			}
+			finance: icoFinance {
+				platform
+				accepting
+				bonus
+				distributed
+				hardcap
+				minimum
+				platform
+				price
+				raised
+				softcap
+				token
+				tokens
+				tokentype
+			}
+			links: icoLinks {
+				bitcointalk
+				discord
+				facebook
+				github
+				medium
+				reddit
+				slack
+				telegram
+				twitter
+				whitepaper
+				www
+				video
+				bounty
+			}
+			team_members: icoTeams {
+				group
+				iss
+				links
+				name
+				photo
+				title
+			}
+			ratings: icoRatings {
+				agree
+				name
+				photo
+				review
+				product
+				profile
+				team
+				vision
+				weight
 			}
 		}
 	}

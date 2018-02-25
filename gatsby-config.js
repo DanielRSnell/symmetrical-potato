@@ -10,20 +10,92 @@ module.exports = {
 				endpoint: `https://api.graph.cool/simple/v1/cjazynkxt0xkj01926xxwnp9m`,
 				query: `{
       	allIcoProfiles {
-          id
-          name
-          logo
-          desc
-          about
-          tagline
-          rating
-          start
-          end
-          prestart
-          preend
+						id
+	          name
+	          logo
+	          desc
+	          about
+	          tagline
+	          intro
+	          rating
+						ratingTeam
+	          ratingVision
+	          ratingProfile
+	          ratingProduct
+	          url
+	          country
+	          raised
+	          prestart
+	          preend
+	          start
+	          end
+	          icoid
           icoCategories {
             id
             name
+          }
+					milestones {
+						id
+						title
+						content
+					}
+					icoExchanges {
+            id
+            logo
+            price
+            roi
+            name
+          }
+					icoFinance {
+            platform
+            accepting
+            bonus
+            distributed
+            hardcap
+            minimum
+            platform
+            price
+            raised
+            softcap
+            token
+            tokens
+            tokentype
+          }
+					icoLinks {
+            bitcointalk
+            discord
+            facebook
+            github
+            medium
+            reddit
+            slack
+            telegram
+            twitter
+            whitepaper
+            www
+            video
+            bounty
+          }
+					icoTeams {
+            group
+            iss
+            links
+            name
+            photo
+            title
+          }
+					icoRatings {
+            agree
+            date
+            name
+            photo
+            review
+            product
+            profile
+            team
+            title
+            vision
+            weight
           }
         }
       }`
