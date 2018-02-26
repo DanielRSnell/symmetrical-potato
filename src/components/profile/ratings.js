@@ -5,11 +5,11 @@ class Ratings extends Component {
 	render() {
 		const data = this.props.data;
 		console.log(data);
-		if (data !== null || undefined) {
+		if (data.Rate !== null || undefined) {
 			return (
 				<List
 					itemLayout="horizontal"
-					dataSource={data}
+					dataSource={data.Rate}
 					renderItem={item => (
 						<List.Item>
 							<List.Item.Meta

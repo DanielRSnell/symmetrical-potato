@@ -63,6 +63,21 @@ class BlogPostTemplate extends React.Component {
 		}
 	}
 
+	CheckSpace(data) {
+		if (
+			data.intro !== '' &&
+			data.intro !== null &&
+			data.intro !== 'undefined'
+		) {
+			return (
+				<Row className="profile-intro">
+					<h1>INTRODUCTION</h1>
+					{data.intro}
+				</Row>
+			);
+		}
+	}
+
 	callback(key) {
 		console.log(key);
 	}
@@ -70,173 +85,173 @@ class BlogPostTemplate extends React.Component {
 	render() {
 		console.log(this.props.data);
 
-		const data = this.props.data.ico;
-
-		return (
-			<Row className="profile-container">
-				<Row className="section-top">
-					<Row className="profile-row" span={24}>
-						<Col className="profile-col" span={24}>
-							<center>
-								<img src={data.logo} className="header-logo" />
-							</center>
-						</Col>
+		if (this.props.data.ico !== null && this.props.data.ico !== 'undefined') {
+			const data = this.props.data.ico;
+			return (
+				<Row className="profile-container">
+					<Row className="section-top">
+						<Row className="profile-row" span={24}>
+							<Col className="profile-col" span={24}>
+								<center>
+									<img src={data.logo} className="header-logo" />
+								</center>
+							</Col>
+						</Row>
+						<Row className="profile-row" span={24}>
+							<Col className="profile-col" span={24}>
+								<center>
+									<span className="header-title">{data.name}</span>
+								</center>
+							</Col>
+						</Row>
+						<Row className="profile-row" span={24}>
+							<Col className="profile-col" span={24}>
+								<center>
+									<span className="header-secondary">{data.tagline}</span>
+								</center>
+							</Col>
+						</Row>
 					</Row>
-					<Row className="profile-row" span={24}>
-						<Col className="profile-col" span={24}>
-							<center>
-								<span className="header-title">{data.name}</span>
-							</center>
-						</Col>
-					</Row>
-					<Row className="profile-row" span={24}>
-						<Col className="profile-col" span={24}>
-							<center>
-								<span className="header-secondary">{data.tagline}</span>
-							</center>
-						</Col>
-					</Row>
-				</Row>
-				<Row className="section-mid" span={24}>
-					<Row className="profile-row" span={24}>
-						<center>{this.CreateTags(data)}</center>
-					</Row>
-					<Row className="profile-intro">
-						<h1>INTRODUCTION</h1>
-						{data.intro}
-					</Row>
-					<Row type="flex" justify="center" className="profile-row" span={24}>
-						<Col className="profile-content" span={24}>
-							<Row className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={24}>
-									<span className="rating-header">{data.rating}</span>
-								</Col>
-							</Row>
-							<Row className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={6}>
-									<span className="rating-sub">{data.ratingTeam}</span>
-									<span className="rating-title">Team</span>
-								</Col>
-								<Col className="sidebar-item" span={6}>
-									<span className="rating-sub">{data.ratingVision}</span>
-									<span className="rating-title">Vision</span>
-								</Col>
-								<Col className="sidebar-item" span={6}>
-									<span className="rating-sub">{data.ratingProfile}</span>
-									<span className="rating-title">Profile</span>
-								</Col>
-								<Col className="sidebar-item" span={6}>
-									<span className="rating-sub">{data.ratingProduct}</span>
-									<span className="rating-title">Product</span>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> Status: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<Tag color="green">Active</Tag>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> Pre-ICO Start: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-content-item">
-										{m(data.prestart).format('ll')}{' '}
-									</span>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> Pre-ICO End: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-content-item">
-										{m(data.preend).format('ll')}{' '}
-									</span>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> ICO Start: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-content-item">
-										{m(data.start).format('ll')}{' '}
-									</span>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> ICO End: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-content-item">
-										{m(data.end).format('ll')}{' '}
-									</span>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> Website: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-content-item">
-										{this.GetWebsite(data)}
-									</span>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> Github: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-content-item">
-										{this.GetGithub(data)}
-									</span>
-								</Col>
-							</Row>
-							<Row span={24} className="profile-sidebar-box" span={24}>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-title-item"> Twitter: </span>
-								</Col>
-								<Col className="sidebar-item" span={12}>
-									<span className="sidebar-content-item">
-										{this.GetTwitter(data)}
-									</span>
-								</Col>
-							</Row>
-						</Col>
-					</Row>
-					<Row className="profile-bottom-section" span={24}>
-						<Col className="profile-end" span={24}>
-							<Tabs defaultActiveKey="1" onChange={this.callback}>
-								<TabPane tab="About" key="1">
-									<h1>
-										<strong>About: </strong> {data.name}
-									</h1>
-									<div
-										className="profile-content-row"
-										dangerouslySetInnerHTML={this.CreateRaw(data)}
-									/>
-								</TabPane>
-								<TabPane tab="Milestones" key="2">
-									<Milestones milestones={data.mile} />
-								</TabPane>
-								<TabPane tab="Financial" key="3">
-									<Financial data={data} />
-								</TabPane>
-								<TabPane tab="Reviews" key="4">
-									<Ratings data={data.Rate} />
-								</TabPane>
-							</Tabs>
-						</Col>
+					<Row className="section-mid" span={24}>
+						<Row className="profile-row" span={24}>
+							<center>{this.CreateTags(data)}</center>
+						</Row>
+						{this.CheckSpace(data)}
+						<Row type="flex" justify="center" className="profile-row" span={24}>
+							<Col className="profile-content" span={24}>
+								<Row className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={24}>
+										<span className="rating-header">{data.rating}</span>
+									</Col>
+								</Row>
+								<Row className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={6}>
+										<span className="rating-sub">{data.ratingTeam}</span>
+										<span className="rating-title">Team</span>
+									</Col>
+									<Col className="sidebar-item" span={6}>
+										<span className="rating-sub">{data.ratingVision}</span>
+										<span className="rating-title">Vision</span>
+									</Col>
+									<Col className="sidebar-item" span={6}>
+										<span className="rating-sub">{data.ratingProfile}</span>
+										<span className="rating-title">Profile</span>
+									</Col>
+									<Col className="sidebar-item" span={6}>
+										<span className="rating-sub">{data.ratingProduct}</span>
+										<span className="rating-title">Product</span>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> Status: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<Tag color="green">Active</Tag>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> Pre-ICO Start: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-content-item">
+											{m(data.prestart).format('ll')}{' '}
+										</span>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> Pre-ICO End: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-content-item">
+											{m(data.preend).format('ll')}{' '}
+										</span>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> ICO Start: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-content-item">
+											{m(data.start).format('ll')}{' '}
+										</span>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> ICO End: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-content-item">
+											{m(data.end).format('ll')}{' '}
+										</span>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> Website: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-content-item">
+											{this.GetWebsite(data)}
+										</span>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> Github: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-content-item">
+											{this.GetGithub(data)}
+										</span>
+									</Col>
+								</Row>
+								<Row span={24} className="profile-sidebar-box" span={24}>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-title-item"> Twitter: </span>
+									</Col>
+									<Col className="sidebar-item" span={12}>
+										<span className="sidebar-content-item">
+											{this.GetTwitter(data)}
+										</span>
+									</Col>
+								</Row>
+							</Col>
+						</Row>
+						<Row className="profile-bottom-section" span={24}>
+							<Col className="profile-end" span={24}>
+								<Tabs defaultActiveKey="1" onChange={this.callback}>
+									<TabPane tab="About" key="1">
+										<h1>
+											<strong>About: </strong> {data.name}
+										</h1>
+										<div
+											className="profile-content-row"
+											dangerouslySetInnerHTML={this.CreateRaw(data)}
+										/>
+									</TabPane>
+									<TabPane tab="Milestones" key="2">
+										<Milestones milestones={data} />
+									</TabPane>
+									<TabPane tab="Financial" key="3">
+										<Financial data={data} />
+									</TabPane>
+									<TabPane tab="Reviews" key="4">
+										<Ratings data={data} />
+									</TabPane>
+								</Tabs>
+							</Col>
+						</Row>
 					</Row>
 				</Row>
-			</Row>
-		);
+			);
+		} else {
+			return <div className="loading" />;
+		}
 	}
 }
 

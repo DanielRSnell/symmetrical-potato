@@ -9,7 +9,7 @@ module.exports = {
 			options: {
 				endpoint: `https://api.graph.cool/simple/v1/cjazynkxt0xkj01926xxwnp9m`,
 				query: `{
-      	allIcoProfiles {
+      	allIcoProfiles(first: 900) {
 						id
 	          name
 	          logo
@@ -24,7 +24,6 @@ module.exports = {
 	          ratingProduct
 	          url
 	          country
-	          raised
 	          prestart
 	          preend
 	          start

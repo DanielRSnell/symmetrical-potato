@@ -5,31 +5,38 @@ class Financial extends Component {
 	render() {
 		const data = this.props.data;
 		console.log(data);
+
 		if (data !== null || undefined) {
 			return (
 				<div className="exchange-items">
 					<Row className="financial-numbers" span={24}>
 						<Col className="financial-item" span={12}>
-							<strong>Accepting: </strong> {data.finance.accepting}
+							<strong>Accepting: </strong>{' '}
+							{data.finance ? data.finance.accepting : 'N/A'}
 						</Col>
 						<Col className="financial-item" span={12}>
-							<strong>Platform: </strong> {data.finance.platform}
-						</Col>
-					</Row>
-					<Row className="financial-numbers" span={24}>
-						<Col className="financial-item" span={12}>
-							<strong>Distributed: </strong> {data.finance.distributed}
-						</Col>
-						<Col className="financial-item" span={12}>
-							<strong>Price: </strong> {data.finance.price}
+							<strong>Platform: </strong>{' '}
+							{data.finance ? data.finance.platform : 'N/A'}
 						</Col>
 					</Row>
 					<Row className="financial-numbers" span={24}>
 						<Col className="financial-item" span={12}>
-							<strong>Harcap: </strong> {data.finance.hardcap}
+							<strong>Distributed: </strong>{' '}
+							{data.finance ? data.finance.distributed : 'N/A'}
 						</Col>
 						<Col className="financial-item" span={12}>
-							<strong>Softcap: </strong> {data.finance.softcap}
+							<strong>Price: </strong>{' '}
+							{data.finance ? data.finance.price : 'N/A'}
+						</Col>
+					</Row>
+					<Row className="financial-numbers" span={24}>
+						<Col className="financial-item" span={12}>
+							<strong>Harcap: </strong>{' '}
+							{data.finance ? data.finance.hardcap : 'N/A'}
+						</Col>
+						<Col className="financial-item" span={12}>
+							<strong>Softcap: </strong>{' '}
+							{data.finance ? data.finance.softcap : 'N/A'}
 						</Col>
 					</Row>
 					{data.exchanges.map(item => (
