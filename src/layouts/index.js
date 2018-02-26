@@ -27,7 +27,7 @@ const Header = () => (
 						color: 'white',
 						textDecoration: 'none'
 					}}>
-					<center>ICO WORLD</center>
+					<center>ICO.SHILL</center>
 				</Link>
 			</h1>
 		</div>
