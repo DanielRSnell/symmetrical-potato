@@ -10,7 +10,9 @@ class IndexPage extends Component {
 		width: 1000
 	};
 
-	CheckBrowser(data) {
+	render() {
+		const data = this.props.data.ico.edges;
+
 		if (typeof window !== 'undefined') {
 			if (window.innerWidth > 609) {
 				return (
@@ -32,12 +34,6 @@ class IndexPage extends Component {
 				</div>
 			);
 		}
-	}
-
-	render() {
-		const data = this.props.data.ico.edges;
-
-		return <div className="container">{this.CheckBrowser(data)}</div>;
 	}
 }
 
