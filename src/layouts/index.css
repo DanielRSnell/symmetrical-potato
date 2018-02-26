@@ -43,7 +43,7 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
+  background-color: #001529;
   -webkit-text-decoration-skip: objects;
 }
 a:active,

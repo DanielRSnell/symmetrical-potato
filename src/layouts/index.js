@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
+import { Layout } from 'antd';
+
+const { Footer } = Layout;
 
 import './index.css';
 
 const Header = () => (
 	<div
 		style={{
-			background: '#663399',
+			background: '#001529',
 			marginBottom: '1.45rem'
 		}}>
 		<div
@@ -24,7 +27,7 @@ const Header = () => (
 						color: 'white',
 						textDecoration: 'none'
 					}}>
-					Gatsby Done Right
+					<center>ICO WORLD</center>
 				</Link>
 			</h1>
 		</div>
@@ -32,7 +35,7 @@ const Header = () => (
 );
 
 const TemplateWrapper = ({ children }) => (
-	<div>
+	<Layout>
 		<Helmet
 			title="Home of all your ICO needs"
 			meta={[
@@ -53,7 +56,11 @@ const TemplateWrapper = ({ children }) => (
 			}}>
 			{children()}
 		</div>
-	</div>
+		<Footer style={{ textAlign: 'center' }}>
+			<strong>JAM Designs</strong> ©2018 Created by{' '}
+			<strong>Daniel Snell</strong>
+		</Footer>
+	</Layout>
 );
 
 TemplateWrapper.propTypes = {

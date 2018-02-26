@@ -97,7 +97,7 @@ module.exports = {
             vision
             weight
           }
-        }
+			  }
       }`
 			}
 		},
@@ -107,8 +107,8 @@ module.exports = {
 				name: 'Gatsby with GraphCMS',
 				short_name: 'Gatsby GCMS',
 				start_url: '/',
-				background_color: '#fff',
-				theme_color: '#61045f',
+				background_color: '#F0F2F5',
+				theme_color: '#001529',
 				display: 'minimal-ui',
 				icons: [
 					{

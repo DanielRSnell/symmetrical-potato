@@ -2,8 +2,10 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import get from 'lodash/get';
-import { Avatar, Row, Col, Tag, Divider } from 'antd';
+import { Avatar, Row, Col, Tag, Divider, Layout } from 'antd';
 import './post.css';
+
+const { Footer } = Layout;
 
 class BlogPostTemplate extends React.Component {
 	CreateRaw(props) {
