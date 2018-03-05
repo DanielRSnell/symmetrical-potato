@@ -9,7 +9,7 @@ module.exports = {
 			options: {
 				endpoint: `https://api.graph.cool/simple/v1/cjazynkxt0xkj01926xxwnp9m`,
 				query: `{
-      	allIcoProfiles(first: 900) {
+      	allIcoProfiles(first: 100) {
 						id
 	          name
 	          logo
@@ -74,14 +74,6 @@ module.exports = {
             www
             video
             bounty
-          }
-					icoTeams {
-            group
-            iss
-            links
-            name
-            photo
-            title
           }
 					icoRatings {
             agree
