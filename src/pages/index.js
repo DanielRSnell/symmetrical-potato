@@ -6,28 +6,10 @@ import Mobile from '../components/index/mobile.js';
 import './index.css';
 
 class IndexPage extends Component {
-	state = {
-		width: 1000
-	};
 
 	render() {
 		const data = this.props.data.ico.edges;
 
-		if (typeof window !== 'undefined') {
-			if (window.innerWidth > 609) {
-				return (
-					<div>
-						<Desktop icos={data} />
-					</div>
-				);
-			} else if (window.innerWidth < 609) {
-				return (
-					<div>
-						<Mobile icos={data} />
-					</div>
-				);
-			}
-		} else {
 			return (
 				<div>
 					<Desktop icos={data} />
