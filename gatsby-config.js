@@ -9,7 +9,7 @@ module.exports = {
 			options: {
 				endpoint: `https://api.graph.cool/simple/v1/cjazynkxt0xkj01926xxwnp9m`,
 				query: `{
-      	allIcoProfiles(first: 100) {
+      	allIcoProfiles(first: 900) {
 						id
 	          name
 	          logo
